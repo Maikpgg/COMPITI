@@ -1,0 +1,88 @@
+#include <stdio.h>       // SI RICHIAMA LA LIBRERIA
+
+     // DI SEGUITO SI ELENCANO LE FUNZIONI PER LE SCELTE CHE L'UTENTE ANDRA' A FARE
+
+void menu();                 // HO TOLTO GLI SPAZI PRIMA DELLE DUE PARENTESI TONDE
+void moltiplica();            // HO TOLTO GLI SPAZI PRIMA DELLE DUE PARENTESI TONDE
+void dividi();                 // HO TOLTO GLI SPAZI PRIMA DELLE DUE PARENTESI TONDE
+void ins_string();
+
+int main()       // FUNZIONE PRINCIPALE DA CUI IL COMPILATORE INIZIA AD ESEGUIRE IL PROGRAMMA, HO TOLTO LO SPAZIO ANCHE QUI
+
+{                                 // TRA LE PARENTESI GRAFFE SI INSERISCONO I BLOCCHI DI CODICE DA ESEGUIRE IN BASE ALLE SCELTE
+	char scelta;          // HO TOLTO "= {'\0'}" DOPO "SCELTA" PERCHE' è IL NOME DI UNA FUNZIONE INERENTE I CARATTERI
+	menu();           // TOLTO LO SPAZIO ANCHE QUI
+	scanf("%c", &scelta);            //TOLTO SPAZIO PRIMA DELLA PARENTESI, INSERITO %c invece di %d perchè l'utente inserirà dei caratteri
+
+	switch (scelta)
+	{
+		case 'A':
+		moltiplica();
+		break;
+		case 'B':
+                dividi();
+                break;
+		case 'C':
+                ins_string();
+                break;
+                default:                     // HO INSERITO UNA ULTERIORE RISPOSTA DEL PROGRAMMA NEL CASO, 
+                   printf("Scegliere correttamente \n");               //  L'UTENTE SCELGA QUALCOSA DI DIVERSO DALLE OPZIONI PROPOSTE
+	}
+
+return 0;
+
+}
+
+
+void menu()    // TOLTO LO SPAZIO
+{
+	printf("Benvenuto, sono un assistente digitale, posso aiutarti a sbrigare alcuni compiti\n");   //TOLTO GLI SPAZI PRIMA DELLE ( + CORREZIONE ORTOGRAFICA
+	printf("Come posso aiutarti?\n");                                                                //TOLTO GLI SPAZI PRIMA DELLE (
+	printf("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\n");    //TOLTO GLI SPAZI PRIMA DELLE (
+
+}
+
+
+void moltiplica()  //TOLTO LO SPAZIO
+{
+	int a, b;               // ERANO PRESENTI DUE TIPI DI FUNZIONE, SHORT E INT, TOLTO SHORT PERCHE' INT CONSENTE DI UTILIZZARE PIU' NUMERI, CORRETTO b CHE ERA SCRITTA COME UGUALE A ZERO
+	printf("Inserisci i due numeri da moltiplicare:\n");   // TOLTO SPAZIO E INSERITO NEW LINE
+	scanf("%d", &a);     // TOLTO GLI SPAZI, CAMBIATO "%f in %d"
+	scanf("%d", &b);      // TOLTO GLI SPAZI
+
+	int prodotto = a * b;        // TOLTO SHORT ANCHE QUI
+
+	printf("Il prodotto tra i due numeri inseriti e': %d", prodotto);         // TOLTO SPAZIO E CORRETTO IL COMANDO TRA LE PARENTESI TONDE
+}
+
+
+void dividi()               // TOLTO LO SPAZIO
+{ 
+        int a, b;                       // ANCHE QUI B ERA UGUALE A ZERO ED ERA SBAGLIATO
+        printf("Inserisci il numeratore:\n");
+        scanf("%d", &a);
+	printf("Inserisci il denominatore:\n");
+        scanf("%d", &b);
+
+        if (b == 0)                                        // INSERITO QUESTA POSSIBILITA' DI RISPOSTA SE L'UTENTE DOVESSE INSERIRE ZERO AL DENOMINATORE
+        {  
+           printf("Divisione per zero non possibile!!");
+           return;
+        }       
+
+        int divisione = a / b;      // PER LA DIVISIONE SI USA " / " E NON " % "
+
+        printf("La divisione tra i due numeri e': %d", divisione);
+}
+
+
+
+
+
+void ins_string() 
+{
+	char stringa[10];
+        printf("Inserisci la stringa: ");
+        scanf("%9s", stringa);    // LIMITATO LA STRINGA A 9 CARATTERI E TOLTO LA & PRIMA DI " stringa "
+        printf("Hai inserito la stringa: %9s, stringa");
+}
